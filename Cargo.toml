@@ -16,3 +16,11 @@ i18n-macro = { version = "0.1", path = "./i18n-macro" }
 
 [build-dependencies]
 i18n-load-locale = { version = "*", path = "./i18n-load-locale" }
+
+[dev-dependencies.criterion]
+features = ["html_reports"]
+version = "0.3"
+
+[[bench]]
+name = "benchmark"
+harness = false
