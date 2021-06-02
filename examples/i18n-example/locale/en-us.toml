@@ -1,0 +1,19 @@
+name = "English"
+hello-world = "Hello World!"
+
+[words]
+is = "is"
+
+[log]
+level = "Log level"
+debug = "Debug"
+warning = "Warning"
+error = "Error"
+
+[path1]
+pp = 2
+# or
+# path2 = { path3 = "ppp" }
+
+[path1.path2]
+path3 = "ppp"
