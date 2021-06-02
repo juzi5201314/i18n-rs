@@ -64,7 +64,7 @@ pub fn build_match_func(_: TokenStream) -> TokenStream {
             let mut match2 = proc_macro2::TokenStream::new();
             for (k, v) in lsm.iter() {
                 match2.extend(quote::quote! {
-                    #k => Some(String::from(#v)),
+                    #k => Some((Cow::Borrowed(#v))),
                 });
             }
             match1.extend(quote::quote! {
@@ -79,7 +79,8 @@ pub fn build_match_func(_: TokenStream) -> TokenStream {
     });
 
     (quote::quote! {
-        pub fn _match_message<S>(lang_code: S, field: S) -> Option<String> where S: AsRef<str> {
+        #[inline(never)]
+        pub fn _match_message<S>(lang_code: S, field: S) -> Option<Cow<'static, str>> where S: AsRef<str> {
             match lang_code.as_ref() {
                 #match1
                 _ => None
