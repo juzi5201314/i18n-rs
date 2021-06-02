@@ -15,16 +15,23 @@ macro_rules! i18n {
     ($field:expr) => {{
         $crate::check_field!($field);
         $crate::_match_message($crate::Language::now().name().as_ref(), $field)
-            .unwrap_or_else(|| $field.to_owned())
+            .unwrap_or_else(|| ::std::borrow::Cow::Borrowed($field))
     }};
+    ($field:expr; strict) => {
+        $crate::i18n!($field)
+    }
 }
 #[cfg(not(feature = "strict"))]
 #[macro_export]
 macro_rules! i18n {
     ($field:expr) => {
         $crate::_match_message($crate::Language::now().name().as_ref(), $field)
-            .unwrap_or_else(|| $field.to_owned())
+            .unwrap_or_else(|| ::std::borrow::Cow::Borrowed($field))
     };
+    ($field:expr; strict) => {{
+        $crate::check_field!($field);
+        $crate::i18n!($field)
+    }}
 }
 
 #[cfg(feature = "strict")]
@@ -34,12 +41,19 @@ macro_rules! lang {
         $crate::check_language!($lang);
         $crate::Language::set($crate::Language::from($lang))
     };
+    ($lang:expr; strict) => {
+        $crate::lang!($lang)
+    };
 }
 #[cfg(not(feature = "strict"))]
 #[macro_export]
 macro_rules! lang {
     ($lang:expr) => {
         $crate::Language::set($crate::Language::from($lang))
+    };
+    ($lang:expr; strict) => {
+        $crate::check_language!($lang);
+        $crate::lang!($lang)
     };
 }
 
