@@ -5,6 +5,11 @@ fn main() {
     print();
     lang!("zh-cn"; loose);
     print();
+
+    // i18n!("this.nonexistent") or lang!("this-nonexistent") will cause a compile-time error.
+    assert_eq!(i18n!("this.nonexistent"; loose), "this.nonexistent");
+    lang!("this-nonexistent"; loose);
+    assert_eq!(i18n!("hello-world"; loose), "hello-world");
 }
 
 fn print() {
