@@ -18,7 +18,7 @@ i18n-macro = { version = "0.1", path = "../i18n-macro" }
 version = "0.3"
 
 [build-dependencies]
-i18n-find-locale = { version = "*", path = "../i18n-find-locale" }
+i18n-find-locale = { version = "0.1", path = "../i18n-find-locale" }
 
 [[bench]]
 name = "benchmark"
