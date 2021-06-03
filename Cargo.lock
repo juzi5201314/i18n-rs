@@ -209,10 +209,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "i18n-find-locale"
+version = "0.1.0"
+
+[[package]]
 name = "i18n-macro"
 version = "0.1.0"
 dependencies = [
  "anyhow",
+ "i18n-find-locale",
  "once_cell",
  "proc-macro2",
  "quote",
@@ -228,6 +233,7 @@ version = "0.1.0"
 dependencies = [
  "arc-swap",
  "criterion",
+ "i18n-find-locale",
  "i18n-macro",
  "once_cell",
 ]

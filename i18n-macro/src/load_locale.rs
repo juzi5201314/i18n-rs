@@ -19,7 +19,8 @@ macro_rules! read_dir {
     };
 }
 
-// Recursively find the target path in the parent directory.
+#[allow(unused)]
+/// Recursively find the target path in the parent directory.
 pub fn find<P>(directory: P, target_path: P) -> io::Result<PathBuf>
 where
     P: AsRef<Path>,

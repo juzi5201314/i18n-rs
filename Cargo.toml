@@ -1,7 +1,8 @@
 [workspace]
 members = [
     "i18n-rs",
-    "i18n-macro"
+    "i18n-macro",
+    "i18n-find-locale"
 ]
 exclude = [
     "examples/i18n-example"

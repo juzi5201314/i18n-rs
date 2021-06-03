@@ -17,6 +17,9 @@ i18n-macro = { version = "*", path = "../i18n-macro" }
 [dev-dependencies.criterion]
 version = "0.3"
 
+[build-dependencies]
+i18n-find-locale = { version = "*", path = "../i18n-find-locale" }
+
 [[bench]]
 name = "benchmark"
 harness = false

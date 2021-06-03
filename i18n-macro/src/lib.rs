@@ -5,7 +5,7 @@ use std::path::Path;
 
 use once_cell::unsync::Lazy;
 
-use load_locale::{find, load_locale, LocaleMap};
+use load_locale::{load_locale, LocaleMap};
 
 thread_local! {
     static LOCALE_MAP: Lazy<LocaleMap> = Lazy::new(load_locales_from_env);
@@ -15,11 +15,12 @@ fn load_locales_from_env() -> LocaleMap {
     let locale_path = option_env!("LOCALE_PATH");
     if let Some(locale_path) = locale_path.map(|path| Path::new(path)) {
         let locale_path = if locale_path.is_relative() {
-            find(
-                Path::new(&std::env::var("OUT_DIR").unwrap_or_else(|_| String::from("./"))),
+            i18n_find_locale::find_locale(locale_path)
+            /*find(
+                Path::new(&std::env::var("OUT_DIR").map(|s| PathBuf::from(s)).unwrap_or_else(|_| std::env::current_dir().unwrap())),
                 locale_path,
             )
-            .unwrap()
+            .unwrap()*/
         } else {
             locale_path.to_path_buf()
         };
