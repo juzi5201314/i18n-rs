@@ -228,17 +228,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "i18n-rs"
-version = "0.1.0"
-dependencies = [
- "arc-swap",
- "criterion",
- "i18n-find-locale",
- "i18n-macro",
- "once_cell",
-]
-
-[[package]]
 name = "itertools"
 version = "0.9.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -541,6 +530,17 @@ dependencies = [
  "linked-hash-map",
  "serde",
  "yaml-rust",
+]
+
+[[package]]
+name = "simple-i18n"
+version = "0.1.0"
+dependencies = [
+ "arc-swap",
+ "criterion",
+ "i18n-find-locale",
+ "i18n-macro",
+ "once_cell",
 ]
 
 [[package]]

@@ -8,6 +8,11 @@ you may need [fluent](https://github.com/projectfluent/fluent-rs).*
 
 > If you think this crate is not easy to use, I found another similar crate: [https://github.com/terry90/internationalization-rs](https://github.com/terry90/internationalization-rs)
 
+### Use
+In crates.io, the name of this package is `simple-i18n`, because the name of `i18n-rs` is occupied by an empty crate. shit...
+
+Add `simple-i18n = "0.1"` to Cargo.toml
+
 ### Examples
 Look [i18n-example](./examples/i18n-example)
 ```shell

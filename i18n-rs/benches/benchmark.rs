@@ -1,6 +1,6 @@
 use criterion::{black_box, criterion_group, criterion_main, Criterion};
 
-use i18n_rs::{i18n, lang};
+use simple_i18n::{i18n, lang};
 
 fn i18n_loose() {
     black_box(i18n!("name"; loose));

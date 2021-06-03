@@ -22,7 +22,7 @@ checksum = "56899898ce76aaf4a0f24d914c97ea6ed976d42fec6ad33fcbb0a1103e07b2b0"
 name = "i18n-example"
 version = "0.1.0"
 dependencies = [
- "i18n-rs",
+ "simple-i18n",
 ]
 
 [[package]]
@@ -42,16 +42,6 @@ dependencies = [
  "serde_yaml",
  "syn",
  "toml",
-]
-
-[[package]]
-name = "i18n-rs"
-version = "0.1.0"
-dependencies = [
- "arc-swap",
- "i18n-find-locale",
- "i18n-macro",
- "once_cell",
 ]
 
 [[package]]
@@ -123,6 +113,16 @@ dependencies = [
  "linked-hash-map",
  "serde",
  "yaml-rust",
+]
+
+[[package]]
+name = "simple-i18n"
+version = "0.1.0"
+dependencies = [
+ "arc-swap",
+ "i18n-find-locale",
+ "i18n-macro",
+ "once_cell",
 ]
 
 [[package]]

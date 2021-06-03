@@ -1,4 +1,4 @@
-use i18n_rs::{lang, i18n};
+use simple_i18n::{lang, i18n};
 
 fn main() {
     lang!("en-us");
