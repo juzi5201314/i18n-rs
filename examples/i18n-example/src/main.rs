@@ -5,8 +5,14 @@ fn main() {
     print();
     lang!("zh-cn"; strict);
     print();
+    lang!("en-us"; loose);
 }
 
 fn print() {
-    println!("{} {} {} {}", i18n!("hello-world"; strict), i18n!("log.level"), i18n!("words.is"), i18n!("log.debug"));
+    println!("{} {} {} {}",
+             i18n!("hello-world"; strict),
+             i18n!("log.level"; loose),
+             i18n!("words.is"),
+             i18n!("log.debug")
+    );
 }
