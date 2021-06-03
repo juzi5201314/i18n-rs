@@ -1,8 +1,10 @@
 [package]
 name = "i18n-find-locale"
+description = "A simple compile time i18n implementation in Rust."
 version = "0.1.0"
 authors = ["soeur <juzi201314@gmail.com>"]
 edition = "2018"
+license ="MIT"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
