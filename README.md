@@ -1,5 +1,10 @@
 # i18n-rs
 
+![Crates.io](https://img.shields.io/crates/d/simple-i18n?style=flat-square)
+![Lines](https://img.shields.io/tokei/lines/github/juzi5201314/i18n-rs?style=flat-square)
+![Crates.io](https://img.shields.io/crates/l/simple-i18n?style=flat-square)
+![docs.rs](https://docs.rs/simple-i18n/badge.svg)
+
 A simple compile time i18n implementation in Rust.
 
 > *This is a personal project.
@@ -19,6 +24,8 @@ Look [i18n-example](./examples/i18n-example)
 cd examples/i18n-example
 LOCALE_PATH=locale cargo run --package i18n-example --bin i18n-example
 ```
+
+### [Docs](https://docs.rs/simple-i18n)
 
 ### Benchmark
 ```
