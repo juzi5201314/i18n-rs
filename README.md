@@ -10,25 +10,10 @@ you may need [fluent](https://github.com/projectfluent/fluent-rs).*
 
 ### Examples
 Look [i18n-example](./examples/i18n-example)
-
-### Strict and Loose
-> By default, strict checking will be used.
-
-In loose mode, if you try to get a non-existent field or a non-existent locale, the field itself will be returned.
-
-But strict mode will check your input in `lang!` and `i18n!` to make sure that you are using the existing locale and fields that exist in all locales.
-
-If there is an error, it will be `panic!`.
-
-Don't worry, all of this is checked at compile time, 
-so strict checking will hardly affect runtime performance,
-and there will be not panic at runtime.
-
-> note: Because it needs to be checked at compile time, 
-string literals must be used in strict mode
-
-Fortunately, We can freely switch between loose and strict mode.
-like `i18n!("xxx.x"; loose)`.
+```shell
+cd examples/i18n-example
+LOCALE_PATH=locale cargo run --package i18n-example --bin i18n-example
+```
 
 ### Benchmark
 ```
