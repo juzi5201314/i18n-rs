@@ -4,6 +4,7 @@
 ![Lines](https://img.shields.io/tokei/lines/github/juzi5201314/i18n-rs?style=flat-square)
 ![Crates.io](https://img.shields.io/crates/l/simple-i18n?style=flat-square)
 ![docs.rs](https://docs.rs/simple-i18n/badge.svg)
+![rust-reportcard](https://rust-reportcard.xuri.me/badge/github.com/juzi5201314/i18n-rs)
 
 A simple compile time i18n implementation in Rust.
 
