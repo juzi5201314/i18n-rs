@@ -16,7 +16,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: Install latest nightly
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: nightly
+        override: true
     - name: Build
-      run: cargo build --verbose
+      run: cargo +nightly build --verbose
     - name: Build --release
-      run: cargo build --release --verbose
+      run: cargo +nightly build --release --verbose
