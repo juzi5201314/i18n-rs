@@ -1,4 +1,4 @@
-#![doc = include_str!("../../readme.md")]
+#![doc = include_str!("../readme.md")]
 
 use std::borrow::Cow;
 use std::sync::Arc;
