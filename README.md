@@ -11,8 +11,10 @@ you may need [fluent](https://github.com/projectfluent/fluent-rs).*
 ### Examples
 Look [i18n-example](./examples/i18n-example)
 
-### Strict 
-Under normal circumstances, if you try to get a non-existent field or a non-existent locale, the field itself will be returned.
+### Strict and Loose
+> By default, strict checking will be used.
+
+In loose mode, if you try to get a non-existent field or a non-existent locale, the field itself will be returned.
 
 But strict mode will check your input in `lang!` and `i18n!` to make sure that you are using the existing locale and fields that exist in all locales.
 
@@ -25,7 +27,8 @@ and there will be not panic at runtime.
 > note: Because it needs to be checked at compile time, 
 string literals must be used in strict mode
 
-Fortunately, we can freely choose whether to use strict mode.
+Fortunately, We can freely switch between loose and strict mode.
+like `i18n!("xxx.x"; loose)`.
 
 ### Benchmark
 ```

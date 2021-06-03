@@ -9,64 +9,26 @@ pub use i18n_macro::{check_field, check_language};
 
 build_match_func!();
 
-#[cfg(feature = "strict")]
 #[macro_export]
 macro_rules! i18n {
     ($field:expr) => {{
         $crate::check_field!($field);
-        $crate::_match_message($crate::Language::now().name().as_ref(), $field)
-            .unwrap_or_else(|| ::std::borrow::Cow::Borrowed($field))
-    }};
-    ($field:expr; strict) => {
-        $crate::i18n!($field)
-    };
-    ($field:expr; loose) => {
-        $crate::_match_message($crate::Language::now().name().as_ref(), $field)
-            .unwrap_or_else(|| ::std::borrow::Cow::Borrowed($field))
-    };
-}
-#[cfg(not(feature = "strict"))]
-#[macro_export]
-macro_rules! i18n {
-    ($field:expr) => {
-        $crate::_match_message($crate::Language::now().name().as_ref(), $field)
-            .unwrap_or_else(|| ::std::borrow::Cow::Borrowed($field))
-    };
-    ($field:expr; strict) => {{
-        $crate::check_field!($field);
-        $crate::i18n!($field)
+        $crate::i18n!($field; loose)
     }};
     ($field:expr; loose) => {
-        $crate::i18n!($field)
+        $crate::_match_message($crate::Language::now().name().as_ref(), $field)
+            .unwrap_or_else(|| ::std::borrow::Cow::Borrowed($field))
     };
 }
 
-#[cfg(feature = "strict")]
 #[macro_export]
 macro_rules! lang {
     ($lang:expr) => {
         $crate::check_language!($lang);
-        $crate::Language::set($crate::Language::from($lang))
-    };
-    ($lang:expr; strict) => {
-        $crate::lang!($lang)
+        $crate::lang!($lang; loose)
     };
     ($lang:expr; loose) => {
         $crate::Language::set($crate::Language::from($lang))
-    };
-}
-#[cfg(not(feature = "strict"))]
-#[macro_export]
-macro_rules! lang {
-    ($lang:expr) => {
-        $crate::Language::set($crate::Language::from($lang))
-    };
-    ($lang:expr; strict) => {
-        $crate::check_language!($lang);
-        $crate::lang!($lang)
-    };
-    ($lang:expr; loose) => {
-        $crate::lang!($lang)
     };
 }
 
