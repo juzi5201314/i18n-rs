@@ -19,7 +19,7 @@ macro_rules! i18n {
     }};
     ($field:expr; strict) => {
         $crate::i18n!($field)
-    }
+    };
 }
 #[cfg(not(feature = "strict"))]
 #[macro_export]
@@ -31,7 +31,7 @@ macro_rules! i18n {
     ($field:expr; strict) => {{
         $crate::check_field!($field);
         $crate::i18n!($field)
-    }}
+    }};
 }
 
 #[cfg(feature = "strict")]

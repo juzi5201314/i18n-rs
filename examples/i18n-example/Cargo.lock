@@ -26,24 +26,17 @@ dependencies = [
 ]
 
 [[package]]
-name = "i18n-load-locale"
-version = "0.1.0"
-dependencies = [
- "anyhow",
- "serde_json",
- "serde_yaml",
- "toml",
-]
-
-[[package]]
 name = "i18n-macro"
 version = "0.1.0"
 dependencies = [
- "i18n-load-locale",
+ "anyhow",
  "once_cell",
  "proc-macro2",
  "quote",
+ "serde_json",
+ "serde_yaml",
  "syn",
+ "toml",
 ]
 
 [[package]]
@@ -51,7 +44,6 @@ name = "i18n-rs"
 version = "0.1.0"
 dependencies = [
  "arc-swap",
- "i18n-load-locale",
  "i18n-macro",
  "once_cell",
 ]
