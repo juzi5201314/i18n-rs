@@ -23,7 +23,7 @@ macro_rules! i18n {
     }};
     ($field:expr; loose) => {
         $crate::_match_message($crate::Language::now().name().as_ref(), $field)
-            .unwrap_or_else(|| ::std::borrow::Cow::Borrowed($field))
+            .unwrap_or_else(|| $field)
     };
 }
 /// Change language
