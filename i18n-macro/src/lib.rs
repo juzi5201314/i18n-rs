@@ -61,6 +61,7 @@ pub fn check_field(field: TokenStream) -> TokenStream {
 #[proc_macro]
 pub fn build_match_func(_: TokenStream) -> TokenStream {
     let mut match1 = proc_macro2::TokenStream::new();
+    let mut codes = proc_macro2::TokenStream::new();
 
     LOCALE_MAP.with(|locale_map| {
         for (code, lsm) in locale_map.iter() {
@@ -78,6 +79,9 @@ pub fn build_match_func(_: TokenStream) -> TokenStream {
                     }
                 },
             });
+            codes.extend(quote::quote! {
+                "#code",
+            });
         }
     });
 
@@ -88,6 +92,11 @@ pub fn build_match_func(_: TokenStream) -> TokenStream {
                 #match1
                 _ => None
             }
+        }
+
+        #[inline]
+        pub fn _langs() -> &'static [&'static str] {
+            &[#codes]
         }
     })
     .into()

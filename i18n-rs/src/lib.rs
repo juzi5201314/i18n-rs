@@ -194,7 +194,7 @@ impl Language {
 impl Default for Language {
     fn default() -> Self {
         Language {
-            name: "en-us".to_owned(),
+            name: _langs().first().unwrap_or(&"").to_string(),
         }
     }
 }
