@@ -80,7 +80,7 @@ pub fn build_match_func(_: TokenStream) -> TokenStream {
                 },
             });
             codes.extend(quote::quote! {
-                "#code",
+                #code,
             });
         }
     });
